@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Button from '../Button'
 import DropdownList from '../DropdownList'
 import TextField from '../TextField'
@@ -14,9 +15,14 @@ const Form = () => {
         'Inovação e Gestão'
     ]
 
+    const [inputName, setInputName] = useState('')
+    const [inputOffice, setInputOffice] = useState('')
+    const [inputImage, setInputImage] = useState('')
+    const [team, setTeam] = useState('')
+
     const saved = (e) => {
         e.preventDefault()
-        console.log('Form foi submetido')
+        console.log('Form foi submetido =>', inputName, inputOffice, inputImage, team)
     }
 
     return (
@@ -24,10 +30,33 @@ const Form = () => {
             <form onSubmit={saved}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
 
-                <TextField required={true} label="Nome" placeholder="Digite seu nome" />
-                <TextField required={true} label="Cargo" placeholder="Digite seu cargo" />
-                <TextField label="Imagem" placeholder="Digite o endereço da imagem" />
-                <DropdownList required={true} label='Time' itens={times} />
+                <TextField 
+                    required={true} 
+                    label="Nome" 
+                    placeholder="Digite seu nome" 
+                    value={inputName}
+                    changed={value => setInputName(value)}
+                />
+                <TextField 
+                    required={true} 
+                    label="Cargo" 
+                    placeholder="Digite seu cargo" 
+                    value={inputOffice}
+                    changed={value => setInputOffice(value)}
+                />
+                <TextField 
+                    label="Imagem" 
+                    placeholder="Digite o endereço da imagem" 
+                    value={inputImage}
+                    changed={value => setInputImage(value)}
+                />
+                <DropdownList 
+                    required={true} 
+                    label='Time' 
+                    itens={times}
+                    value={team}
+                    changed={value => setTeam(value)}
+                />
                 <Button>
                     Criar Card
                 </Button>
