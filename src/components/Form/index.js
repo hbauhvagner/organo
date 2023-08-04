@@ -4,7 +4,7 @@ import DropdownList from '../DropdownList'
 import TextField from '../TextField'
 import './style.css'
 
-const Form = () => {
+const Form = (props) => {
     const times = [
         'Programação',
         'Front-End',
@@ -22,7 +22,12 @@ const Form = () => {
 
     const saved = (e) => {
         e.preventDefault()
-        console.log('Form foi submetido =>', inputName, inputOffice, inputImage, team)
+        props.registeredUser({
+            inputName,
+            inputOffice,
+            inputImage,
+            team
+        })
     }
 
     return (
