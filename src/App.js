@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Form registeredUser={user => newUserAdded(user)} />
+      <Form teams={teams.map(team => team.name)} registeredUser={user => newUserAdded(user)} />
       {teams.map(team => <Team key={team.name} name={team.name} primaryColor={team.primaryColor} secondaryColor={team.secondaryColor} />)}
     </div>
   );
