@@ -42,18 +42,24 @@ function App() {
     },
   ]
 
-  const [users, setUsers] = useState([])
+  const [collaborators, setCollaborators] = useState([])
 
-  const newUserAdded = (user) => {
-    console.log(user)
-    setUsers([...users, user])
+  const newUserAdded = (collaborator) => {
+    console.log(collaborator)
+    setCollaborators([...collaborators, collaborator])
   }
 
   return (
     <div className="App">
       <Banner />
-      <Form teams={teams.map(team => team.name)} registeredUser={user => newUserAdded(user)} />
-      {teams.map(team => <Team key={team.name} name={team.name} primaryColor={team.primaryColor} secondaryColor={team.secondaryColor} />)}
+      <Form teams={teams.map(team => team.name)} registeredUser={collaborator => newUserAdded(collaborator)} />
+      {teams.map(team => <Team 
+        key={team.name} 
+        name={team.name} 
+        primaryColor={team.primaryColor} 
+        secondaryColor={team.secondaryColor} 
+        collaborators={collaborators}
+      />)}
     </div>
   );
 }
