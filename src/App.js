@@ -58,7 +58,7 @@ function App() {
         name={team.name} 
         primaryColor={team.primaryColor} 
         secondaryColor={team.secondaryColor} 
-        collaborators={collaborators}
+        collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
       />)}
     </div>
   );
