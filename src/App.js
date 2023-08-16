@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
+import BaseBoard from './components/BaseBoard';
 
 function App() {
   const teams = [
@@ -45,7 +46,6 @@ function App() {
   const [collaborators, setCollaborators] = useState([])
 
   const newUserAdded = (collaborator) => {
-    console.log(collaborator)
     setCollaborators([...collaborators, collaborator])
   }
 
@@ -60,6 +60,7 @@ function App() {
         secondaryColor={team.secondaryColor} 
         collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
       />)}
+      <BaseBoard />
     </div>
   );
 }

@@ -5,6 +5,7 @@ const DropdownList = (props) => {
         <div className='dropdown-list'>
             <label>{props.label}</label>
             <select onChange={e => props.changed(e.target.value)} required={props.required} value={props.value}>
+                <option value=''></option>
                 {props.itens.map(item => {
                     return <option key={item}>{item}</option>
                 })}
