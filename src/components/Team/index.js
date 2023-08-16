@@ -2,8 +2,10 @@ import Collaborator from '../Collaborator'
 import './style.css'
 
 const Team = (props) => {
+    const css = { backgroundColor: props.secondaryColor }
+
     return (
-        (props.collaborators.length > 0) ? <section className='team' style={{ backgroundColor: props.secondaryColor }}>
+        (props.collaborators.length > 0) ? <section className='team' style={ css }>
             <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
             <div className='collaborators'>
                 {props.collaborators.map(collaborator => <Collaborator 
